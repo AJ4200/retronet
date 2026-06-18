@@ -2,6 +2,7 @@ import type { RefObject } from "react";
 import type { Game } from "../../_lib/types";
 
 type CabinetProps = {
+  gameCount: number;
   mountRef: RefObject<HTMLDivElement | null>;
   onFullscreen: () => void;
   onReload: () => void;
@@ -9,18 +10,25 @@ type CabinetProps = {
   stageRef: RefObject<HTMLDivElement | null>;
 };
 
-export function Cabinet({ mountRef, onFullscreen, onReload, selectedGame, stageRef }: CabinetProps) {
+export function Cabinet({ gameCount, mountRef, onFullscreen, onReload, selectedGame, stageRef }: CabinetProps) {
   return (
     <section className="cabinet">
       <div className="screen-bezel" ref={stageRef}>
         <div className="screen-topline">
-          <span>{selectedGame?.title ?? "select game"}</span>
-          <span>{selectedGame?.size ?? "SWF"}</span>
+          <span>{selectedGame?.title ?? "choose your game"}</span>
+          <span>{selectedGame?.size ?? `${gameCount.toString().padStart(2, "0")} games`}</span>
         </div>
         <div className="screen" ref={mountRef}>
-          <div className="screen-standby">
-            <span>INSERT CARTRIDGE</span>
-          </div>
+          {!selectedGame ? (
+            <div className="screen-standby screen-welcome">
+              <span>{gameCount > 0 ? `${gameCount} games online` : "scanning library"}</span>
+              <small>choose a cabinet from the wall</small>
+            </div>
+          ) : (
+            <div className="screen-standby">
+              <span>INSERT CARTRIDGE</span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -28,7 +36,7 @@ export function Cabinet({ mountRef, onFullscreen, onReload, selectedGame, stageR
         <button className="arcade-button hot" onClick={onFullscreen} type="button">
           full screen
         </button>
-        <button className="arcade-button" onClick={onReload} type="button">
+        <button className="arcade-button" disabled={!selectedGame} onClick={onReload} type="button">
           reload
         </button>
         {selectedGame ? (

@@ -397,6 +397,25 @@ h1 {
   animation: blink 1.15s steps(2) infinite;
 }
 
+.screen-welcome {
+  display: grid;
+  gap: 18px;
+  max-width: min(520px, calc(100% - 32px));
+  padding: 24px;
+  text-align: center;
+  animation: none;
+}
+
+.screen-welcome small {
+  display: block;
+  color: var(--cyan);
+  font-family: var(--font-arcade-text), monospace;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(255, 43, 214, 0.7);
+}
+
 .ruffle-player {
   display: block;
   width: 100%;
@@ -564,6 +583,7 @@ h1 {
 }
 
 .arcade-button.is-disabled,
+.arcade-button:disabled,
 .slot-actions button:disabled,
 .pwa-panel button:disabled,
 .audio-mute:disabled,

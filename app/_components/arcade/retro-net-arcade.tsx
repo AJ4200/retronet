@@ -94,6 +94,7 @@ export function RetroNetArcade() {
             setQuery={setQuery}
           />
           <Cabinet
+            gameCount={games.length}
             mountRef={mountRef}
             onFullscreen={enterFullscreen}
             onReload={reloadGame}

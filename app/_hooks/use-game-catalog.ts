@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { FLAVORS, LAST_GAME_KEY } from "../_lib/constants";
+import { FLAVORS } from "../_lib/constants";
 import { formatBytes, titleFor } from "../_lib/games";
 import type { Game } from "../_lib/types";
 
@@ -14,7 +14,7 @@ export function useGameCatalog({ onCatalogError }: UseGameCatalogOptions) {
   const [selectedFile, setSelectedFile] = useState("");
   const [query, setQuery] = useState("");
 
-  const selectedGame = useMemo(() => games.find((game) => game.file === selectedFile) ?? games[0], [games, selectedFile]);
+  const selectedGame = useMemo(() => games.find((game) => game.file === selectedFile), [games, selectedFile]);
 
   const filteredGames = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -51,11 +51,7 @@ export function useGameCatalog({ onCatalogError }: UseGameCatalogOptions) {
           return;
         }
 
-        const lastGame = window.localStorage.getItem(LAST_GAME_KEY);
-        const chosen = loadedGames.find((game) => game.file === lastGame) ?? loadedGames[0];
-
         setGames(loadedGames);
-        setSelectedFile(chosen?.file ?? "");
       })
       .catch(() => {
         onCatalogError();
