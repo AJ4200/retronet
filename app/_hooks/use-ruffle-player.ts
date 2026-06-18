@@ -4,13 +4,29 @@ import { useEffect, useRef, useState, type RefObject } from "react";
 import type { Game, RufflePlayerElement } from "../_lib/types";
 
 type UseRufflePlayerOptions = {
+  effectiveVolume: number;
   mountRef: RefObject<HTMLDivElement | null>;
   reloadToken: number;
   selectedGame?: Game;
   setNotice: (notice: string) => void;
 };
 
-export function useRufflePlayer({ mountRef, reloadToken, selectedGame, setNotice }: UseRufflePlayerOptions) {
+const applyPlayerVolume = (player: RufflePlayerElement | null, effectiveVolume: number) => {
+  if (!player) {
+    return;
+  }
+
+  const normalizedVolume = Math.min(1, Math.max(0, effectiveVolume / 100));
+
+  player.volume = normalizedVolume;
+  const ruffleApi = player.ruffle?.();
+
+  if (ruffleApi) {
+    ruffleApi.volume = normalizedVolume;
+  }
+};
+
+export function useRufflePlayer({ effectiveVolume, mountRef, reloadToken, selectedGame, setNotice }: UseRufflePlayerOptions) {
   const [ruffleReady, setRuffleReady] = useState(false);
   const [playerStatus, setPlayerStatus] = useState("awaiting cartridge");
   const playerRef = useRef<RufflePlayerElement | null>(null);
@@ -32,6 +48,7 @@ export function useRufflePlayer({ mountRef, reloadToken, selectedGame, setNotice
       contextMenu: "on",
       letterbox: "on",
       unmuteOverlay: "hidden",
+      volume: effectiveVolume / 100,
       warnOnUnsupportedContent: false,
     };
 
@@ -44,6 +61,7 @@ export function useRufflePlayer({ mountRef, reloadToken, selectedGame, setNotice
     player.style.width = "100%";
     player.style.height = "100%";
     playerRef.current = player;
+    applyPlayerVolume(player, effectiveVolume);
     mount.appendChild(player);
 
     const ruffleApi = player.ruffle?.();
@@ -69,6 +87,10 @@ export function useRufflePlayer({ mountRef, reloadToken, selectedGame, setNotice
       mount.innerHTML = "";
     };
   }, [mountRef, reloadToken, ruffleReady, selectedGame, setNotice]);
+
+  useEffect(() => {
+    applyPlayerVolume(playerRef.current, effectiveVolume);
+  }, [effectiveVolume]);
 
   return {
     playerStatus,

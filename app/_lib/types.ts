@@ -15,8 +15,10 @@ export type SaveSlot = {
 export type RufflePlayerElement = HTMLElement & {
   ruffle?: () => {
     load: (options: { url: string; autoplay?: "auto" | "on" | "off" }) => Promise<unknown>;
+    volume?: number;
   };
   load?: (options: { url: string; autoplay?: "auto" | "on" | "off" }) => Promise<unknown>;
+  volume?: number;
 };
 
 export type BeforeInstallPromptEvent = Event & {

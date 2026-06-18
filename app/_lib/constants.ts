@@ -1,4 +1,7 @@
 export const LAST_GAME_KEY = "retronet:last-game";
+export const AUDIO_MUTED_KEY = "retronet:audio-muted";
+export const AUDIO_VOLUME_KEY = "retronet:audio-volume";
+export const OFFLINE_PROMPT_DISMISSED_KEY = "retronet:offline-prompt-dismissed";
 export const SAVE_PREFIX = "retronet:save:";
 export const PWA_RUNTIME_CACHE = "retronet-v1:runtime";
 export const PWA_GAME_CACHE = "retronet-v1:games";

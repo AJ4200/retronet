@@ -10,11 +10,15 @@ type MemoryPanelProps = {
   gameCount: number;
   installPwa: () => void;
   loadSlot: (slot: number) => void;
+  muted: boolean;
   notice: string;
+  onToggleMuted: () => void;
+  onVolumeChange: (volume: number) => void;
   pwaStatus: string;
   saveSlot: (slot: number) => void;
   saveSlots: SaveSlot[];
   selectedGame?: Game;
+  volume: number;
 };
 
 export function MemoryPanel({
@@ -26,11 +30,15 @@ export function MemoryPanel({
   gameCount,
   installPwa,
   loadSlot,
+  muted,
   notice,
+  onToggleMuted,
+  onVolumeChange,
   pwaStatus,
   saveSlot,
   saveSlots,
   selectedGame,
+  volume,
 }: MemoryPanelProps) {
   return (
     <aside className="memory-panel" aria-label="Save states">
@@ -64,6 +72,25 @@ export function MemoryPanel({
       <div className="system-readout">
         <span>auto memory</span>
         <strong>{selectedGame ? slugFor(selectedGame.file) : "idle"}</strong>
+      </div>
+
+      <div className="audio-deck" aria-label="Audio controls">
+        <button className={muted ? "audio-mute is-muted" : "audio-mute"} onClick={onToggleMuted} type="button">
+          {muted ? "muted" : "sound"}
+        </button>
+        <label className="volume-control">
+          <span>volume</span>
+          <input
+            aria-label="Volume"
+            max="100"
+            min="0"
+            onChange={(event) => onVolumeChange(Number(event.target.value))}
+            step="1"
+            type="range"
+            value={volume}
+          />
+        </label>
+        <strong className="volume-readout">{muted ? "00" : volume.toString().padStart(2, "0")}</strong>
       </div>
 
       <div className="pwa-panel">
