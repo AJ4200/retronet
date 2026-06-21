@@ -1,6 +1,6 @@
-# RetroNet Arcade
+# FlashBack Machine
 
-RetroNet is an immersive retro browser arcade for classic Flash games. It uses the open source [Ruffle](https://ruffle.rs/) Flash emulator, a neon pixel-art interface, local save slots, fullscreen play, SWF downloads, and PWA offline caching.
+FlashBack Machine is an immersive retro browser arcade for classic Flash games. It uses the open source [Ruffle](https://ruffle.rs/) Flash emulator, a neon pixel-art interface, local save slots, fullscreen play, SWF downloads, and PWA offline caching.
 
 Made with love by aj4200.
 
@@ -78,7 +78,7 @@ The app reads this list at runtime and builds the cabinet wall automatically.
 
 ## Offline PWA
 
-RetroNet includes:
+FlashBack Machine includes:
 
 - `app/manifest.ts` for install metadata
 - `public/icons/*` for install icons
@@ -97,9 +97,9 @@ For the most reliable install/offline test, run the production build over HTTPS 
 
 ## Saves
 
-Ruffle persists Flash SharedObject data in browser storage. RetroNet adds three visible save-data slots per game by copying and restoring that browser save data, then reloading the current game.
+Ruffle persists Flash SharedObject data in browser storage. FlashBack Machine adds three visible save-data slots per game by copying and restoring that browser save data, then reloading the current game.
 
-These are not true emulator save states. Ruffle's web player does not currently expose a full runtime/RAM snapshot API, so RetroNet cannot reliably resume an arbitrary exact frame unless the game itself has written save data.
+These are not true emulator save states. Ruffle's web player does not currently expose a full runtime/RAM snapshot API, so FlashBack Machine cannot reliably resume an arbitrary exact frame unless the game itself has written save data.
 
 Browser storage is local to the origin. Changing domains, clearing site data, or using a private window can remove saves and offline cache data.
 
@@ -120,4 +120,4 @@ Browser storage is local to the origin. Changing domains, clearing site data, or
 
 ## Notes
 
-Some Flash games may need network access internally, use unsupported ActionScript behavior, or save progress differently. Ruffle compatibility varies by game, but RetroNet keeps the emulator runtime and local SWFs available offline once cached.
+Some Flash games may need network access internally, use unsupported ActionScript behavior, or save progress differently. Ruffle compatibility varies by game, but FlashBack Machine keeps the emulator runtime and local SWFs available offline once cached.

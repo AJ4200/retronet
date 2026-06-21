@@ -17,7 +17,7 @@ import { Marquee } from "./marquee";
 import { MemoryPanel } from "./memory-panel";
 import { OfflinePrompt } from "./offline-prompt";
 
-export function RetroNetArcade() {
+export function FlashBackMachineArcade() {
   const [notice, setNotice] = useState("memory card ready");
   const [offlinePromptDismissed, setOfflinePromptDismissed] = useState(true);
   const [reloadToken, setReloadToken] = useState(0);

@@ -1,4 +1,4 @@
-const VERSION = "retronet-v1";
+const VERSION = "flashback-machine-v1";
 const SHELL_CACHE = `${VERSION}:shell`;
 const GAME_CACHE = `${VERSION}:games`;
 const RUNTIME_CACHE = `${VERSION}:runtime`;
@@ -6,9 +6,9 @@ const RUNTIME_CACHE = `${VERSION}:runtime`;
 const SHELL_ASSETS = [
   "/",
   "/manifest.webmanifest",
-  "/icons/retronet-192.png",
-  "/icons/retronet-512.png",
-  "/icons/retronet-maskable-512.png",
+  "/icons/flashback-machine-192.png",
+  "/icons/flashback-machine-512.png",
+  "/icons/flashback-machine-maskable-512.png",
   "/games/flashlist.json",
   "/ruffle/ruffle.js",
   "/ruffle/core.ruffle.8700c6b0144208de9d1b.js",
@@ -135,6 +135,6 @@ async function networkFirst(request, cacheName, fallbackUrl) {
       }
     }
 
-    throw new Error("RetroNet is offline and this asset was not cached.");
+    throw new Error("FlashBack Machine is offline and this asset was not cached.");
   }
 }

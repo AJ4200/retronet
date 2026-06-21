@@ -154,6 +154,12 @@ h1 {
   text-shadow: 5px 5px 0 var(--magenta), 10px 10px 0 rgba(33, 244, 255, 0.45);
 }
 
+.brand-lockup h1 {
+  max-width: 18ch;
+  font-size: clamp(1.5rem, 3.2vw, 3.4rem);
+  overflow-wrap: anywhere;
+}
+
 .marquee-status {
   display: grid;
   min-width: min(100%, 260px);

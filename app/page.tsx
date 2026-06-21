@@ -1,5 +1,5 @@
-import { RetroNetArcade } from "./_components/arcade/retro-net-arcade";
+import { FlashBackMachineArcade } from "./_components/arcade/flashback-machine-arcade";
 
 export default function Home() {
-  return <RetroNetArcade />;
+  return <FlashBackMachineArcade />;
 }

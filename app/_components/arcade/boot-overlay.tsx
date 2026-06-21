@@ -12,8 +12,8 @@ export function BootOverlay({ bootProgress, bootReady, bootStarted, onStart }: B
     <div className={`boot-overlay ${bootStarted ? "is-hidden" : ""}`}>
       <div className="boot-box">
         <div className="boot-brand">
-          <img src="/icons/retronet-192.png" alt="RetroNet arcade logo" width="72" height="72" />
-          <p>RETRO NET BOOT DISK</p>
+          <img src="/icons/flashback-machine-192.png" alt="FlashBack Machine arcade logo" width="72" height="72" />
+          <p>FLASHBACK MACHINE BOOT DISK</p>
         </div>
         <div className="boot-lines">
           {BOOT_LINES.slice(0, Math.max(1, Math.ceil((bootProgress / 100) * BOOT_LINES.length))).map((line) => (

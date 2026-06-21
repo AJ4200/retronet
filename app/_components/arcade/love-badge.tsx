@@ -1,6 +1,6 @@
 export function LoveBadge() {
   return (
-    <footer className="arcade-footer" aria-label="RetroNet credits and storage details">
+    <footer className="arcade-footer" aria-label="FlashBack Machine credits and storage details">
       <div className="love-badge">
         <span className="pixel-heart" aria-hidden="true" />
         <span>made with love by</span>
@@ -19,7 +19,7 @@ export function LoveBadge() {
         <div className="footer-detail-grid">
           <section>
             <strong>install</strong>
-            <p>Adds RetroNet to your device as an app shell. It keeps the arcade launch experience available from your home screen or app list.</p>
+            <p>Adds FlashBack Machine to your device as an app shell. It keeps the arcade launch experience available from your home screen or app list.</p>
           </section>
           <section>
             <strong>cache</strong>
@@ -27,7 +27,7 @@ export function LoveBadge() {
           </section>
           <section>
             <strong>saves</strong>
-            <p>Game progress uses browser storage when a SWF supports it. RetroNet slots copy that Flash save data, not the live emulator RAM state.</p>
+            <p>Game progress uses browser storage when a SWF supports it. FlashBack Machine slots copy that Flash save data, not the live emulator RAM state.</p>
           </section>
         </div>
       </details>

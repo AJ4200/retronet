@@ -1,4 +1,4 @@
-import { SAVE_PREFIX } from "./constants";
+import { SAVE_PREFIX, STORAGE_PREFIX } from "./constants";
 import type { SaveSlot } from "./types";
 
 export const saveKey = (file: string, slot: number) => `${SAVE_PREFIX}${encodeURIComponent(file)}:${slot}`;
@@ -35,7 +35,7 @@ export const snapshotLocalStorage = () => {
   for (let index = 0; index < window.localStorage.length; index += 1) {
     const key = window.localStorage.key(index);
 
-    if (!key || key.startsWith("retronet:")) {
+    if (!key || key.startsWith(STORAGE_PREFIX)) {
       continue;
     }
 

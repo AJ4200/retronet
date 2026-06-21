@@ -48,7 +48,7 @@ export default function Icon() {
               textShadow: "10px 10px 0 #ff2bd6",
             }}
           >
-            RN
+            FB
           </div>
         </div>
       </div>

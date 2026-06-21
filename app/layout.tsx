@@ -15,7 +15,7 @@ const arcadeText = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "RetroNet Arcade",
+  title: "FlashBack Machine",
   description: "A neon browser arcade for classic Flash games powered by Ruffle.",
 };
 

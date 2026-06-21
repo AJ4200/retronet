@@ -21,7 +21,7 @@ export function Cabinet({ gameCount, mountRef, onFullscreen, onReload, selectedG
         <div className="screen" ref={mountRef}>
           {!selectedGame ? (
             <div className="screen-welcome">
-              <img src="/icons/retronet-192.png" alt="" width="92" height="92" />
+              <img src="/icons/flashback-machine-192.png" alt="" width="92" height="92" />
               <div className="welcome-copy">
                 <span>no game loaded</span>
                 <strong>{gameCount > 0 ? `${gameCount} games online` : "scanning library"}</strong>

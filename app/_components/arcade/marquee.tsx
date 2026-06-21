@@ -7,10 +7,10 @@ export function Marquee({ playerStatus, ruffleReady }: MarqueeProps) {
   return (
     <section className="marquee">
       <div className="brand-lockup">
-        <img className="brand-logo" src="/icons/retronet-192.png" alt="RetroNet arcade logo" width="96" height="96" />
+        <img className="brand-logo" src="/icons/flashback-machine-192.png" alt="FlashBack Machine arcade logo" width="96" height="96" />
         <div>
-          <p className="eyebrow">RETRO ARCADE NETWORK</p>
-          <h1>RetroNet</h1>
+          <p className="eyebrow">CLASSIC FLASH ARCADE</p>
+          <h1>FlashBack Machine</h1>
         </div>
       </div>
       <div className="marquee-status">

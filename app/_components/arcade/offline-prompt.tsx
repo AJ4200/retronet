@@ -21,7 +21,7 @@ export function OfflinePrompt({ cacheBusy, canInstall, gameCount, onCacheLibrary
       <div>
         <span>offline mode</span>
         <strong>keep the arcade ready</strong>
-        <p>Install RetroNet and cache the library so these cabinets still boot when your internet drops.</p>
+        <p>Install FlashBack Machine and cache the library so these cabinets still boot when your internet drops.</p>
       </div>
       <div className="offline-actions">
         <button disabled={!canInstall} onClick={onInstall} type="button">
